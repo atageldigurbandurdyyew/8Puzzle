@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 Puzzle Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Thasadith:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="main-container">
+        <section id="screen-home" class="screen" style="display: flex;">
+            <h1 class="main-title">8 Puzzle Game</h1>
+            <div class="info-box">
+                
+                <div class="slide-item">
+                    <p class="fade-text">CTIS 255 - Web Technologies</p>
+                    <p class="fade-text">Project</p>
+                    <p class="fade-text">Fall 2026</p>
+                </div>
+                <div class="slide-item">
+                    <p class="fade-text">by</p>
+                    <p class="fade-text">Resulkary Saparow 21701538</p>
+                    <p class="fade-text">&</p>
+                    <p class="fade-text">Zeyad Abuammer 21701633</p>
+                </div>
+                <div class="slide-item">
+                    <p class="fade-text" style="color: black; font-size: 1.5rem; font-weight: 600;">Enjoy</p>
+                </div>
+            </div>
+            <button class="btn-primary" style="margin-top: 80px; margin-bottom: 80px;" onclick="showScreen('screen-pick')">START</button>
+        </section>
+
+        <section id="screen-pick" class="screen" style="display: none;">
+            <h2 class="section-title">Pick an Image</h2>
+            <div class="image-grid">
+                <img src="img/img1.JPG" onclick="selectImg(this)">
+                <img src="img/img2.JPG" onclick="selectImg(this)">
+                <img src="img/img3.JPG" onclick="selectImg(this)">
+            </div>
+            <button id="continue-btn" class="btn-primary hidden" onclick="showScreen('screen-game')">Continue</button>
+        </section>
+
+        <section id="screen-game" class="screen" style=" display: none;">
+            <div id="board" class="board">
+               
+            </div>
+             
+
+            <div id="game-ui-container">
+                <div id="game-controls">
+    <h2 class="sub-title">Select Shuffle Amount</h2>
+    
+    <div class="custom-select-wrapper">
+        <div class="custom-select" onclick="toggleDropdown()">
+            <span id="selected-text">Choose shuffle</span>
+            <div class="arrow"></div>
+        </div>
+        <div id="custom-options" class="custom-options">
+            <span id="option" style="display: block; ">Choose shuffle</span>
+            <div class="option" onclick="selectOption(3, '3 moves')">3 moves</div>
+            <div class="option" onclick="selectOption(30, '30 moves')">30 moves</div>
+        </div>
+    </div>
+
+    <input type="hidden" id="shuffle-amount" value="">
+    
+    <br>
+    <button id="start-btn" class="btn-primary hidden"  onclick="startShuffle()">START</button>
+</div>
+                
+                <div id="game-status" class="hidden">
+    <div class="status-content">
+        <h1 class="status-main">Solve the puzzle now!</h1>
+        <p id="solve-hint" class="status-hint">Press ESC if you want me to solve it</p>
+    </div>
+</div>
+            </div>
+
+            <div id="win-overlay" class="overlay hidden">
+    <div class="win-content">
+        <h2 class="win-title">Congratulations!</h2>
+        <p id="solve-subtitle" class="win-subtitle">Press F5 to restart</p>
+    </div>
+</div>
+        </section>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
